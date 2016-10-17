@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: BlogApiDev
+  username: walter
+  password: w@lter
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: BlogApiTest
+  username: walter
+  password: w@lter
+  host: localhost
