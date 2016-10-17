@@ -10,10 +10,12 @@
 u1 = User.create({nickname: 'donald', email: 'donald@duck.com',  password: 'dsfd'})
 u2 = User.create({nickname: 'TitusGroan', email: 'TitusGrand@gormenghast.com', password: 'dsfd'})
 
-
+i = 0;
+while i < 100 do
 p1 = Post.new
 p1.title = 'North'
 p1.body = 'North is cold'
 p1.published_at = Time.now
-p1.author = u1
-p1.save 
+u1.posts << p1
+u1.save
+end

@@ -2,10 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
   
   # actioni for_api
-  def search
-    p params.to_s
+  def search_by_page
+    p 'the page is '
+    p params.to_json
+    page = params[:page].to_i
+    per_page = params[:per_page].to_i
+    
     params_str = params[:params]
-        @posts = Post.all.includes(:author)
+        @posts = Post.all.includes(:author).order(:published_at).limit(per_page).offset(page*per_page)
 
     
     render :json=> @posts, :methods =>[:author_nickname],
