@@ -38,7 +38,7 @@ RSpec.describe PostsController, :type => :controller do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      post = Post.create! valid_attributes
+      post = Post.create! :title=>'Sea', :body=>'A lot of walter', :published_at=>Time.now, :author=>User.last
       get :index, {}, valid_session
       expect(assigns(:posts)).to eq([post])
     end
